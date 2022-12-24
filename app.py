@@ -167,11 +167,9 @@ def translatePage():
         
         # Get language
         lan = GetLanguage(text)
-        print(lan)
 
         # Translate if not already English
-        translatedText = Translate(text)
-        print( translatedText )
+        translatedText = Translate(text,lan)
 
         return render_template('translateResult.html',
                                original=text,

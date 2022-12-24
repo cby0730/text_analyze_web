@@ -129,7 +129,7 @@ def translatePage():
             # Return the language
             return language
 
-        def Translate(text, source_language):
+        def Translate(text, source_language, tarrget_lan):
             translation = ''
 
             # Use the Translator translate function
@@ -141,7 +141,7 @@ def translatePage():
             params = {
                 'api-version': '3.0',
                 'from': source_language,
-                'to': ['en']
+                'to': [tarrget_lan]
             }
 
             headers = {
@@ -167,9 +167,10 @@ def translatePage():
         
         # Get language
         lan = GetLanguage(text)
+        tarrget_lan = request.form['language']
 
         # Translate if not already English
-        translatedText = Translate(text,lan)
+        translatedText = Translate(text,lan, tarrget_lan)
 
         return render_template('translateResult.html',
                                original=text,
@@ -180,4 +181,4 @@ def translatePage():
         print(ex)
 
 
-app.run()
+#app.run()

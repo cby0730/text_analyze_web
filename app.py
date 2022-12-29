@@ -2,6 +2,8 @@ from flask import Flask, redirect, url_for, request, render_template, session
 from dotenv import load_dotenv
 import os
 import requests,json
+import openai
+openai.api_key = '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'
 # Import namespaces
 from azure.core.credentials import AzureKeyCredential
 from azure.ai.textanalytics import TextAnalyticsClient
@@ -20,6 +22,24 @@ def index_post():
         return analyzePage()
     elif request.form['type'] == 'translate':
         return translatePage()
+    elif request.form['type'] == 'ask':
+        return chatgptPage()
+
+def chatgptPage() :
+
+    msg = request.form['text']
+    response = openai.Completion.create(
+        engine='text-davinci-003',
+        prompt=msg,
+        max_tokens=3999,
+        temperature=0.5
+    )
+
+    completed_text = response['choices'][0]['text']
+
+    return render_template('openai.html',
+                            original=msg,
+                            response=completed_text)
 
 
 def analyzePage():

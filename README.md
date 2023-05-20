@@ -10,3 +10,5 @@
 雖因為多段翻譯的關係，時間只有快一些，但是在文章的產生上卻有顯著提升
   
 [程式說明](https://github.com/cby0730/text_analyze_web/blob/master/程式說明/Finalppt.pdf)
+  
+[實作的demo影片](https://youtu.be/mA2lDD9SqYA)

@@ -1,6 +1,12 @@
 flask
 python-dotenv
 requests
+<<<<<<< HEAD
 azure-core
 azure-ai-textanalytics
 openai
+=======
+openai
+azure-core
+azure-ai-textanalytics
+>>>>>>> azureWeb
